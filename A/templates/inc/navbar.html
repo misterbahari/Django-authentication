@@ -1,0 +1,21 @@
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'home:home' %}">HOME</a>
+  </li>
+  {% if request.user.is_authenticated %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'account:user_profile' request.user.id %}">profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="{% url 'account:user_logout' %}">logout</a>
+  </li>
+  {% else %}
+  <li class="nav-item">
+    <a class="nav-link " href="{% url 'account:user_register' %}">Register</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'account:user_login' %}">login</a>
+  </li>
+  {% endif %}
+
+</ul>
